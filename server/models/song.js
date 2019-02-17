@@ -10,8 +10,11 @@ const SongSchema = new Schema({
   lyrics: [{
     type: Schema.Types.ObjectId,
     ref: 'lyric'
-  }]
-});
+  }] 
+}, {
+  usePushEach: true
+}
+);
 
 SongSchema.statics.addLyric = function(id, content) {
   const Lyric = mongoose.model('lyric');
